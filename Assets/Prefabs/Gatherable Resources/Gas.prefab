@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1715156035423810196}
   - component: {fileID: 156581915902003394}
-  m_Layer: 0
+  - component: {fileID: 4216493620408642673}
+  m_Layer: 11
   m_Name: Gas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2281804471223176727}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.92567265, z: -0, w: -0.37832546}
+  m_LocalRotation: {x: 0, y: 0.7102346, z: -0, w: -0.70396507}
   m_LocalPosition: {x: -6.5, y: 0.4999938, z: 58.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33,7 +34,7 @@ Transform:
   - {fileID: 4455652164458571743}
   - {fileID: 2689223800047207914}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 224.46, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 269.492, z: 0}
 --- !u!65 &156581915902003394
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55,6 +56,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4216493620408642673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281804471223176727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bee0a6fa1f5d4f4db481219040523c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.NavmeshCut
+  version: 1073741824
+  graphMask:
+    value: 1
+  type: 3
+  mesh: {fileID: 0}
+  rectangleSize: {x: 0.74, y: 1.81}
+  circleRadius: 1
+  circleResolution: 6
+  height: 1
+  meshScale: 1
+  center: {x: -0.13, y: 0, z: -0.16}
+  updateDistance: 0.4
+  isDual: 0
+  radiusExpansionMode: 1
+  cutsAddedGeom: 1
+  updateRotationDistance: 10
+  useRotationAndScale: 0
 --- !u!1001 &2685076412139502142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,31 +241,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1aacb6db176cd21428f32887ae00c6d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.15436152
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1aacb6db176cd21428f32887ae00c6d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.029774189
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1aacb6db176cd21428f32887ae00c6d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.19732285
+      value: 0.4406199
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1aacb6db176cd21428f32887ae00c6d3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7924574
+      value: 0.8451956
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1aacb6db176cd21428f32887ae00c6d3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.30569565
+      value: 0.08416067
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1aacb6db176cd21428f32887ae00c6d3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.036904022
+      value: 0.270175
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1aacb6db176cd21428f32887ae00c6d3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.5264975
+      value: 0.45339498
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1aacb6db176cd21428f32887ae00c6d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -1,5 +1,6 @@
 ﻿using System;
 using Event_Bus;
+using NUnit.Framework.Constraints;
 using Pathfinding;
 using Units.Events;
 using Units.Interfaces;
@@ -10,35 +11,22 @@ namespace Units
 {
     [RequireComponent(typeof(FollowerEntity))]
 
-    public abstract class AbstractUnit : MonoBehaviour, ISelectable, IMoveable
+    public abstract class AbstractUnit : AbstractCommandable, IMoveable
     {
-        [Header("Selection")]
-        [SerializeField] private DecalProjector selectionDecal;
-
+        public float AgentRadius => agent.radius;
         private IAstarAI agent;
         private FollowerEntity follower;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             Bus<UnitSpawnEvent>.Raise(new UnitSpawnEvent(this));
         }
 
-        private void OnEnable()
+        private void Awake()
         {
             agent = GetComponent<IAstarAI>();
             follower = GetComponent<FollowerEntity>();
-        }
-
-        public void Select()
-        {
-            selectionDecal.gameObject.SetActive(true);
-            Bus<UnitSelectedEvent>.Raise(new UnitSelectedEvent(this));
-        }
-
-        public void Deselect()
-        {
-            selectionDecal.gameObject.SetActive(false);
-            Bus<UnitDeselectedEvent>.Raise(new UnitDeselectedEvent(this));
         }
 
         public void MoveTo(Vector3 position)

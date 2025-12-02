@@ -87,12 +87,12 @@ MonoBehaviour:
       leadInRadiusWhenApproachingDestination: 1
       allowRotatingOnSpotBacking: 1
     debugFlags: 64
-    stopDistance: 1
+    stopDistance: 0.3
     rotationSmoothing: 0
     positionSmoothing: 0
     groundMask:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 256
     isStopped: 0
   managedState:
     rvoSettings:
@@ -111,7 +111,7 @@ MonoBehaviour:
       tagCostMultipliers:
       - 1
       - 1
-      - 1
+      - 1000
       - 1
       - 1
       - 1
@@ -147,12 +147,12 @@ MonoBehaviour:
   managedSettings:
     pathfindingSettings:
       graphMask:
-        value: -1
-      traversableTags: -1
+        value: 1
+      traversableTags: -5
       tagCostMultipliers:
       - 1
       - 1
-      - 1
+      - 1000
       - 1
       - 1
       - 1
@@ -190,7 +190,7 @@ MonoBehaviour:
     obstacleTimeHorizon: 0.5
     maxNeighbours: 10
     layer: 1
-    collidesWith: -1
+    collidesWith: 2147483643
     priority: 0.549
     debug: 255
     locked: 0
@@ -213,11 +213,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3ed63353774a0092bc26665171ab08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Units::Units.Worker
+  <CurrentHealth>k__BackingField: 0
+  <MaxHealth>k__BackingField: 0
+  <AvailableCommands>k__BackingField:
+  - {fileID: 11400000, guid: 064003716d5f77c448bb65b3fac382c8, type: 2}
   selectionDecal: {fileID: 3006082874544887821}
-  movingPriority: 0
-  stationaryPriority: 1
-  startMovingSpeed: 0.05
-  stopMovingSpeed: 0.01
+  unitScriptableObject: {fileID: 11400000, guid: d52992db12ffa0049b5708b7808ea604, type: 2}
 --- !u!136 &2126437451189159640
 CapsuleCollider:
   m_ObjectHideFlags: 0
