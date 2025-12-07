@@ -163,45 +163,19 @@ namespace Player
                     }
                 }
 
-                int layer = 0;
-                int unitsOnLayer = 0;
-                int maxUnitsOnLayer = 1;
-                float circleRadius = 0;
-                float radialOffset = 0;
-
-                foreach(AbstractUnit unit in abstractUnits)
+                for(int unitIndex = 0; unitIndex < abstractUnits.Count; unitIndex++)
                 {
-                    foreach (ICommand command in  unit.AvailableCommands)
+                    CommandContext commandContext = new CommandContext(abstractUnits[unitIndex], hit, unitIndex);
+                    foreach (ICommand command in abstractUnits[unitIndex].AvailableCommands)
                     {
-                        if (command.CanExecute(unit, hit)) command.Execute(unit, hit);
+                        if (command.CanExecute(commandContext))
+                        {
+                            command.Execute(commandContext);
+                            break;
+                        }
                     }
-                    /*Vector3 targetPosition = new(
-                        hit.point.x + circleRadius * Mathf.Cos(radialOffset * unitsOnLayer),
-                        hit.point.y,
-                        hit.point.z + circleRadius * Mathf.Sin(radialOffset * unitsOnLayer)
-                    );
-
-                    unit.MoveTo(targetPosition);
-                    unitsOnLayer++;
-
-                    if (unitsOnLayer >= maxUnitsOnLayer)
-                    {
-                        layer++;
-                        unitsOnLayer = 0;
-                        circleRadius += unit.AgentRadius * 3.5f;
-                        maxUnitsOnLayer = Mathf.FloorToInt(2 * Mathf.PI * circleRadius / (unit.AgentRadius * 2));
-                        radialOffset = 2 * Mathf.PI / maxUnitsOnLayer;
-                    }*/
                 }
 
-
-                // foreach(ISelectable selectable in selectedUnits)
-                // {
-                //     if (selectable is IMoveable moveable)
-                //     {
-                //         moveable.MoveTo(hit.point);
-                //     }
-                // }
             }
         }
 

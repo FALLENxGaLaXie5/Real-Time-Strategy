@@ -4,7 +4,7 @@ namespace Units.Commands
 {
     public interface ICommand
     {
-        bool CanExecute(AbstractCommandable commandable, RaycastHit hit);
-        void Execute(AbstractCommandable commandable, RaycastHit hit);
+        bool CanExecute(CommandContext context);
+        void Execute(CommandContext context);
     }
 }
